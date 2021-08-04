@@ -1,0 +1,318 @@
+:root {
+    --animationMovementUp: translate3d(0, -100%, 0);
+    --animationMovementDown: translate3d(0, 100%, 0);
+    --animationDuration: 0.5s;
+    --animationDurationFast: 0.1s;
+    --categorySize: 200px;
+}
+
+html {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.9);
+    background-color: #1F2833;
+    height: 100%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    width: 100%;
+}
+
+@media screen and (min-width: 320px) {
+    html {
+        font-size: calc(10px + (25 - 10) * ((100vw - 320px) / 680));
+    }
+}
+
+@media screen and (max-width: 1070px) and (max-height: 700px) {
+    .category {
+        height: 5rem !important;
+        width: 5rem !important;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    html {
+        font-size: 25px;
+    }
+}
+
+#textcontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 5rem;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    position: absolute;
+    margin: 0;
+    font-family: Proza Libre, "serif";
+}
+
+h1.hidden {
+    display: none;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+#popup {
+    position: absolute;
+    height: 1rem;
+    width: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#popup div {
+    position: absolute;
+    opacity: 0;
+}
+
+.popup-show {
+    animation-name: popupShow;
+}
+
+.clip-show {
+    animation-name: clipShow;
+}
+
+#check {
+    font-size: 0.5rem;
+}
+
+.check-show {
+    animation-name: checkShow;
+}
+
+
+.categories {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Open Sans, "sans-serif";
+    height: 7rem;
+    width: 7rem;
+    border: 3px solid rgba(255, 255, 255, 0.9);
+    margin: 0.6rem;
+    transition: background-color 0.2s;
+    font-size: 1rem;
+}
+
+.category .icon {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+.category .icon svg {
+    fill: rgba(255, 255, 255, 0.9);
+    height: 2rem;
+    width: 2rem;
+}
+
+.category:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.category:active {
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(4px);
+}
+
+
+.fade-in-down {
+    animation-name: fadeInDown;
+    animation-duration: var(--animationDuration);
+}
+
+.fade-in-up {
+    animation-name: fadeInUp;
+    animation-duration: var(--animationDuration);
+}
+
+.fade-out-down {
+    opacity: 0;
+    animation-name: fadeOutDown;
+    animation-duration: var(--animationDuration);
+}
+
+.animate-100 {
+    animation-duration: 100ms;
+}
+
+.animate-200 {
+    animation-duration: 200ms;
+}
+
+.animate-300 {
+    animation-duration: 300ms;
+}
+
+.animate-400 {
+    animation-duration: 400ms;
+}
+
+.animate-500 {
+    animation-duration: 500ms;
+}
+
+.animate-600 {
+    animation-duration: 600ms;
+}
+
+.animate-700 {
+    animation-duration: 700ms;
+}
+
+.animate-800 {
+    animation-duration: 800ms;
+}
+
+.animate-900 {
+    animation-duration: 900ms;
+}
+
+.animate-1000 {
+    animation-duration: 1000ms;
+}
+
+.animate-1500 {
+    animation-duration: 1500ms;
+}
+
+.animate-2000 {
+    animation-duration: 2000ms;
+}
+
+.animate-linear {
+    animation-timing-function: linear;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: var(--animationMovementUp);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: var(--animationMovementDown);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeOutDown {
+    from {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        opacity: 0;
+        transform: var(--animationMovementDown);
+    }
+}
+
+@keyframes popupShow {
+    0% {
+        transform: translate3d(0, -100%, 0);
+    }
+
+    50% {
+        transform: translate3d(0, -220%, 0);
+    }
+
+    100% {
+        transform: translate3d(0, -220%, 0);
+    }
+}
+
+@keyframes clipShow {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes checkShow {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        opacity: 0;
+        transform: translate3d(0, 0, 0);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate3d(0, -200%, 0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate3d(0, -200%, 0);
+    }
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 24px;
+    font-size: 1.75rem;
+    cursor: pointer;
+}
+footer a{
+    text-decoration: inherit;
+    color: inherit;
+}
+footer a:visited{
+    text-decoration: inherit;
+    color: inherit;
+}
